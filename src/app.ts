@@ -27,4 +27,4 @@ async function main(){
   
 }
 
-app.listen(ENV.PORT ,  main);
+app.listen(ENV.PORT , ENV.HOST ,  main);
