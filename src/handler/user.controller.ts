@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { UserService } from "../common/services/user.service";
+import { CommonException } from "../common/exeption/exeption";
 
 const userService = new UserService();
 
@@ -30,6 +31,32 @@ export const getAllUsers = async (_req: Request, res: Response) => {
     const users = await userService.getAllUsers();
     res.json(users);
   } catch (error) {
+    res.status(500).json({ message: (error as Error).message });
+  }
+};
+
+export const updateUser = async (req: Request, res: Response) => {
+  try {
+    await userService.updateUser(req.body._id, req.body);
+    res.json({ message: "User updated successfully" });
+  } catch (error) {
+    if(error instanceof CommonException){
+      res.status(error.statusCode).json(error);
+    }else
+    res.status(500).json({ message: (error as Error).message });
+  }
+};
+
+export const deleteUser = async (req: Request, res: Response) => {
+  try {
+    await userService.deleteUser(req.params.id);
+    res.json({ message: "User deleted successfully" });
+  } catch (error) {
+    console.log(error);
+
+    if(error instanceof CommonException){
+        res.status(error.statusCode).json(error);
+    }else
     res.status(500).json({ message: (error as Error).message });
   }
 };

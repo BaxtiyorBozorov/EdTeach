@@ -16,4 +16,10 @@ export class UserService {
   async deleteUser(id: string): Promise<IUser | null> {
     return await User.findByIdAndDelete(id);
   }
+
+  async updateUser(id: string, data: Partial<IUser>): Promise<IUser | null> {
+    return await User.findByIdAndUpdate(id, data, { new: true });
+  }
+
+  
 }
