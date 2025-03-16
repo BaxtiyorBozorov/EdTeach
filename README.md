@@ -14,7 +14,6 @@ Bu loyiha o'quv markazlari uchun kurslar va foydalanuvchilarni boshqarish imkoni
 📁 src
  ┣ 📂 common          # Umumiy konfiguratsiyalar
  ┣ 📂 handler         # Controller funksiyalari
- ┣ 📂 models          # Mongoose modellari
  ┣ 📂 routes          # API marshrutlari (Routes)
  ┣ 📜 app.ts         # Asosiy server
 ```
@@ -41,15 +40,10 @@ npm run build
 npm run start
 ```
 
-## 🔥 API Endpoints
+## 📖 Postman API hujjatlari
 
-| Method | Endpoint           | Tavsif |
-|--------|--------------------|--------|
-| `POST` | `/courses/create`  | Yangi kurs yaratish |
-| `GET`  | `/courses/`        | Barcha kurslarni olish |
-| `GET`  | `/courses/:id`     | Bitta kursni olish |
-| `POST` | `/enrollments`     | O'quvchini kursga yozish |
-| `GET`  | `/progress/:id`    | O'quvchining progressini ko'rish |
+Postman hujjatlarini ko'rish uchun: [link](https://documenter.getpostman.com/view/26616347/2sAYkBtMjm)
+
 
 
 ## 🛠 Muhit O'zgaruvchilari (Environment Variables)
